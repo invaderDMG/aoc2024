@@ -1,9 +1,9 @@
 # Makefile
 
-# Activar entorno virtual
+# Activate virtual environment
 VENV = source venv/bin/activate
 
-# Crear la carpeta para un nuevo día y una rama asociada
+# Create the folder for a new day and an associated branch
 create_day:
 	git checkout main
 	git pull origin main
@@ -15,14 +15,14 @@ create_day:
 	git commit -m "Initialize Day $(DAY)"
 	git push origin day$(DAY)
 
-# Ejecutar el script de un día específico
+# Execute the script for a specific day
 run_first:
 	$(VENV) && python day$(DAY)/first.py
 
 run_second:
 	$(VENV) && python day$(DAY)/second.py
 
-# Integrar los cambios de un día en main
+# Integrating one-day changes in main
 merge_to_main:
 	git checkout main
 	git pull origin main
