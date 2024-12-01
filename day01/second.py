@@ -1,10 +1,10 @@
 # Day 01
-from shared.utils import read_input, transform_input
+from shared.utils import read_input, twoListsInputTransformation
 
 def main():
     input_data = read_input("day01/input.txt")
 
-    first_list, second_list = transform_input(input_data)
+    first_list, second_list = twoListInputsTransformation(input_data)
 
     total_similarity = 0
     similarity_map = {}
