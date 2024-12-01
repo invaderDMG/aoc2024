@@ -17,9 +17,11 @@ create_day:
 
 # Execute the script for a specific day
 run_first:
+	export PYTHONPATH=$(pwd)
 	$(VENV) && python day$(DAY)/first.py
 
 run_second:
+	export PYTHONPATH=$(pwd)
 	$(VENV) && python day$(DAY)/second.py
 
 # Integrating one-day changes in main
