@@ -8,15 +8,19 @@ create_day:
 	git checkout main
 	git pull origin main
 	git checkout -b day$(DAY)
-	mkdir -p day$(DAY) && touch day$(DAY)/main.py && touch day$(DAY)/input.txt
-	echo "# Day $(DAY)" > day$(DAY)/main.py
+	mkdir -p day$(DAY) && touch day$(DAY)/first.py && touch day$(DAY)/second.py && touch day$(DAY)/input.txt
+	echo "# Day $(DAY) - First puzzle" > day$(DAY)/first.py
+	echo "# Day $(DAY) - Second puzzle" > day$(DAY)/second.py
 	git add day$(DAY)
 	git commit -m "Initialize Day $(DAY)"
 	git push origin day$(DAY)
 
 # Ejecutar el script de un día específico
-run:
-	$(VENV) && python day$(DAY)/main.py
+run_first:
+	$(VENV) && python day$(DAY)/first.py
+
+run_second:
+	$(VENV) && python day$(DAY)/second.py
 
 # Integrar los cambios de un día en main
 merge_to_main:

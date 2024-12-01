@@ -23,7 +23,8 @@ Este proyecto contiene las soluciones para el Advent of Code 2024 usando Python 
 AdventOfCode/
 ├── day01/
 │   ├── input.txt
-│   └── main.py
+│   └── first.py
+│   └── second.py
 ├── shared/
 │   └── utils.py
 ├── venv/
@@ -35,7 +36,7 @@ AdventOfCode/
 ### Objetivos del Makefile
 
 - **Crear un nuevo día (`create_day`)**
-  Crea una nueva carpeta para un día específico con un archivo `main.py` y `input.txt`. Además, crea una nueva rama en el repositorio asociada al día y hace un commit inicial.
+  Crea una nueva carpeta para un día específico con un archivo `first.py`, otro `second.py` y `input.txt`. Además, crea una nueva rama en el repositorio asociada al día y hace un commit inicial.
   ```bash
   make create_day DAY=01
   ```
