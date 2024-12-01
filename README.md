@@ -1,29 +1,30 @@
 
 # Advent of Code 2024
 
-Este proyecto contiene las soluciones para el Advent of Code 2024 usando Python 3.10.15.
+This project contains the solutions for the Advent of Code 2024 using Python 3.10.15.
 
-## Requisitos
+## Requirements
 - Python 3.10.15
-- Make (opcional)
+- Make (optional)
 
-## Configuración
-1. Crear el entorno virtual:
+## Configuration
+1. Create the virtual environment:
    ```bash
    python3.10 -m venv venv
-   source venv/bin/activate  # O en Windows: .\venv\Scripts\activate
+   source venv/bin/activate
    ```
-2. Instalar dependencias:
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-## Estructura del proyecto
+## Project structure
 ```
 AdventOfCode/
 ├── day01/
 │   ├── input.txt
-│   └── main.py
+│   └── first.py
+│   └── second.py
 ├── shared/
 │   └── utils.py
 ├── venv/
@@ -31,32 +32,32 @@ AdventOfCode/
 └── README.md
 ```
 
-## Uso
-### Objetivos del Makefile
+## Usage
+### Makefile Targets.
 
-- **Crear un nuevo día (`create_day`)**
-  Crea una nueva carpeta para un día específico con un archivo `main.py` y `input.txt`. Además, crea una nueva rama en el repositorio asociada al día y hace un commit inicial.
-  ```bash
-  make create_day DAY=01
-  ```
+- **Create a new day (`create_day`)**
+Creates a new folder for a specific day with a `first.py` file, another `second.py` and `input.txt`. In addition, it creates a new branch in the repository associated with the day and makes an initial commit.
+```bash
+make create_day DAY=01
+```
 
-- **Ejecutar un día específico (`run`)**
-  Ejecuta el script de solución para el día indicado.
-  ```bash
-  make run DAY=01
-  ```
+- **Execute a specific day (`run`)**
+Runs the solution script for the specified day.
+```bash
+make run DAY=01
+```
 
-- **Integrar cambios en la rama `main` (`merge_to_main`)**
-  Integra los cambios de la rama del día actual (`dayXX`) en la rama `main`. También elimina la rama del día tanto local como remotamente.
-  ```bash
-  make merge_to_main DAY=01
-  ```
+- **Integrate changes to the `main` branch (`merge_to_main`)**
+Integrates changes from the current day's branch (`dayXX`) into the `main` branch. It also deletes the `main` branch both locally and remotely.
+```bash
+make merge_to_main DAY=01
+```
 
-## Estrategia de branching
+## Branching strategy
 
-1. Inicio de un nuevo día
+1. Starting a new day
 
-Crear una nueva rama para el día específico desde la rama main:
+Create a new branch for the specific day from the main branch:
 
 ```bash
 git checkout dev
@@ -64,24 +65,24 @@ git pull origin dev
 git checkout -b dayXX
 ```
 
-2. Desarrollo
-Trabajar en la rama del día (dayXX), asegurándote de mantener los cambios específicos para ese día. Añadir los archivos y realizar commits regularmente:
+2. Development
+Work on the branch of the day (dayXX), making sure to keep the changes specific to that day. Add files and perform commits regularly:
 
 ```bash
 git add .
 git commit -m "Add solution for day XX"
 ```
 
-3. Integración a main
+3. Integration to main
 
-Una vez que la solución esté terminada y probada, hacer merge de dayXX a main:
+Once the solution is finished and tested, merge dayXX to main:
 
 ```bash
 git checkout main
 git merge dayXX
 ```
 
-### Visualización del flujo
+### Flow
 
 ```
 main

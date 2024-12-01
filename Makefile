@@ -1,24 +1,30 @@
 # Makefile
 
-# Activar entorno virtual
+# Activate virtual environment
 VENV = source venv/bin/activate
 
-# Crear la carpeta para un nuevo día y una rama asociada
+# Create the folder for a new day and an associated branch
 create_day:
 	git checkout main
 	git pull origin main
 	git checkout -b day$(DAY)
-	mkdir -p day$(DAY) && touch day$(DAY)/main.py && touch day$(DAY)/input.txt
-	echo "# Day $(DAY)" > day$(DAY)/main.py
+	mkdir -p day$(DAY) && touch day$(DAY)/first.py && touch day$(DAY)/second.py && touch day$(DAY)/input.txt
+	echo "# Day $(DAY) - First puzzle" > day$(DAY)/first.py
+	echo "# Day $(DAY) - Second puzzle" > day$(DAY)/second.py
 	git add day$(DAY)
 	git commit -m "Initialize Day $(DAY)"
 	git push origin day$(DAY)
 
-# Ejecutar el script de un día específico
-run:
-	$(VENV) && python day$(DAY)/main.py
+# Execute the script for a specific day
+run_first:
+	export PYTHONPATH=$(pwd)
+	$(VENV) && python day$(DAY)/first.py
 
-# Integrar los cambios de un día en main
+run_second:
+	export PYTHONPATH=$(pwd)
+	$(VENV) && python day$(DAY)/second.py
+
+# Integrating one-day changes in main
 merge_to_main:
 	git checkout main
 	git pull origin main
