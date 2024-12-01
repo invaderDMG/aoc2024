@@ -4,7 +4,7 @@ from shared.utils import read_input, twoListsInputTransformation
 def main():
     input_data = read_input("day01/input.txt")
 
-    first_list, second_list = twoListInputsTransformation(input_data)
+    first_list, second_list = twoListsInputTransformation(input_data)
 
     total_similarity = 0
     similarity_map = {}
