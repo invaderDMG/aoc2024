@@ -23,12 +23,3 @@ run_first:
 run_second:
 	export PYTHONPATH=$(pwd)
 	$(VENV) && python day$(DAY)/second.py
-
-# Integrating one-day changes in main
-merge_to_main:
-	git checkout main
-	git pull origin main
-	git merge day$(DAY)
-	git push origin main
-	git branch -d day$(DAY)
-	git push origin --delete day$(DAY)
