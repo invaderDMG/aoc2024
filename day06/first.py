@@ -8,7 +8,7 @@ from shared.utils import read_input
 
 
 def main():
-    input_data = read_input("day06/input.txt")
+    input_data = read_input("day06/test_input.txt")
     height = len(input_data)
     width = len(input_data[0])
     obstacle: Set[Position] = set()
@@ -22,12 +22,10 @@ def main():
                     guardPosition = Position(horizontalIndex, verticalIndex)
             
     map = Map(width, height, Guard(guardPosition, "^"), obstacle)
-    print(map)
     while(not map.guardOut()):
         map.loop()
-        print(map)
 
-    
+    print(map)
     print(len(map.path))
     
 main()

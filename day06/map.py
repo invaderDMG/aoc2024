@@ -35,12 +35,9 @@ class Map:
             
     def loop(self):
         nextStep = self.guard.nextStep()
-        print("next step is ", nextStep)
         if nextStep in self.obstacle:
-            print("i have to turn")
             self.guard.turn()
         else:
-            print("i can move forward")
             self.path.add(Position(self.guard.horizontal, self.guard.vertical))
             self.guard.move()
         self.updateRepresentation()
