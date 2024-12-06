@@ -29,7 +29,6 @@ def checkOrderingRules(orderingRules, pages, previousPageIndex):
         currentPage = pages[pageIndex]
         
         if (int(currentPage) in orderingRules and int(pages[previousPageIndex]) in orderingRules[int(currentPage)]):
-            print(pages[previousPageIndex], "está en la lista de", currentPage, orderingRules[int(currentPage)])
             return False
         pageIndex+=1
     
