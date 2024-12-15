@@ -23,3 +23,9 @@ run_first:
 run_second:
 	export PYTHONPATH=$(pwd)
 	$(VENV) && python day$(DAY)/second.py
+
+debug_first:
+	$(VENV) && code --wait --file-uri $(pwd)/day$(DAY)/first.py
+
+debug_second:
+	$(VENV) && code --wait --file-uri $(pwd)/day$(DAY)/second.py
