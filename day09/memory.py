@@ -32,7 +32,6 @@ class Memory:
         self.totalFreeMemory += size
         
     def compact(self):
-        
         lastFileCursor = self.getLastFileCursor()
         lastFile = self.files[int(self.memoryMap[lastFileCursor].value)]
         self.clear(lastFileCursor - lastFile.size +1, lastFileCursor)
@@ -43,7 +42,7 @@ class Memory:
         while cursor < len(self.memoryMap) and remainingFile != '':
             if (self.memoryMap[cursor].value == '.'):
                 self.memoryMap = self.memoryMap[:cursor] + [MemoryCell(cursor, str(lastFile.id))] + self.memoryMap[cursor+1:]
-                remainingFile = remainingFile[:-1]
+                remainingFile = remainingFile[:-1*len(str(lastFile.id))]
             cursor+=1 
 
     def getLastFileCursor(self):
